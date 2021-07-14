@@ -1,5 +1,9 @@
 {
+  "name": "eslintignored",
+  "version": "1.0.0",
+  "private": true,
   "license": "MIT",
+  "author": "Patrick Eriksson <paleite@users.noreply.github.com> (https://github.com/paleite)",
   "main": "dist/index.js",
   "typings": "dist/index.d.ts",
   "scripts": {
