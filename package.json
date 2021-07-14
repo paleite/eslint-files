@@ -9,14 +9,16 @@
   "scripts": {
     "build": "tsc --build tsconfig.build.json",
     "clean": "tsc --build tsconfig.build.json --clean",
-    "lint": "eslint --ext .js,.ts,.tsx .",
-    "postinstall": "yarn build; husky install",
+    "format": "prettier --write .",
+    "lint": "eslint --cache --ext .js,.ts --fix --format codeframe .",
+    "postinstall": "husky install",
     "postpublish": "pinst --enable",
+    "prepublish": "yarn run clean && yarn run build",
     "prepublishOnly": "pinst --disable",
     "publish-canary": "np prerelease --tag=canary",
     "publish-stable": "np",
-    "test": "jest",
-    "typecheck": "tsc --project tsconfig.json --noEmit"
+    "test": "jest --coverage",
+    "typecheck": "tsc --project tsconfig.json"
   },
   "devDependencies": {
     "@tsconfig/node14": "^1.0.1",
