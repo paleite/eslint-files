@@ -1,19 +1,38 @@
 {
   "name": "eslint-files",
   "version": "0.0.1-1",
-  "private": true,
+  "description": "Remove all files ESLint ignores",
+  "keywords": [
+    "eslint",
+    "eslintignore",
+    "lint-staged"
+  ],
+  "homepage": "https://github.com/paleite/eslint-files#readme",
+  "bugs": {
+    "url": "https://github.com/paleite/eslint-files/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/paleite/eslint-files.git"
+  },
   "license": "MIT",
   "author": "Patrick Eriksson <paleite@users.noreply.github.com> (https://github.com/paleite)",
   "main": "dist/index.js",
   "typings": "dist/index.d.ts",
+  "files": [
+    ".github/ISSUE_TEMPLATE/feature_request.md",
+    "/dist/",
+    "CODE_OF_CONDUCT.md",
+    "SECURITY.md"
+  ],
   "scripts": {
     "build": "tsc --build tsconfig.build.json",
     "clean": "tsc --build tsconfig.build.json --clean",
     "format": "prettier --write .",
     "lint": "eslint --cache --ext .js,.ts --fix --format codeframe .",
     "postinstall": "husky install",
-    "postpublish": "pinst --enable",
     "prepublish": "yarn run clean && yarn run build",
+    "postpublish": "pinst --enable",
     "prepublishOnly": "pinst --disable",
     "publish-canary": "np prerelease --tag=canary",
     "publish-stable": "np",
