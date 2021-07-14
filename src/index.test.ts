@@ -1,15 +1,15 @@
-import { eslintignored } from "./index";
+import { eslintFiles } from "./index";
 
-describe("eslintignored", () => {
+describe("eslint-files", () => {
   it("should keep files that are not ignored", async () => {
     expect(
-      await eslintignored(["test.js", "test.jsx", "test.ts", "test.tsx"])
+      await eslintFiles(["test.js", "test.jsx", "test.ts", "test.tsx"])
     ).toMatchInlineSnapshot(`"test.js test.jsx test.ts test.tsx"`);
   });
 
   it("should omit files that are ignored", async () => {
     expect(
-      await eslintignored([
+      await eslintFiles([
         "src/index.ts",
         // dist is in .eslintignore
         "dist/index.js",

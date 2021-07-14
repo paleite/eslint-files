@@ -1,4 +1,4 @@
-const { eslintignored } = require("./dist");
+const { eslintFiles } = require("./dist");
 
 module.exports = {
   ".*ignore": "prettier --write",
@@ -9,7 +9,7 @@ module.exports = {
      * @param {string[]} files
      */
     async (files) =>
-      `eslint --config .eslintrc.precommit.js --fix --format codeframe --format codeframe --max-warnings=0 ${await eslintignored(
+      `eslint --config .eslintrc.precommit.js --fix --format codeframe --format codeframe --max-warnings=0 ${await eslintFiles(
         files
       )}`,
     "prettier --write",
@@ -23,7 +23,7 @@ module.exports = {
      * @param {string[]} files
      */
     async (files) =>
-      `eslint --config .eslintrc.precommit.js --fix --format codeframe --max-warnings=0  ${await eslintignored(
+      `eslint --config .eslintrc.precommit.js --fix --format codeframe --max-warnings=0  ${await eslintFiles(
         files
       )}`,
     "prettier --write",

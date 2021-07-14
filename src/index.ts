@@ -1,7 +1,7 @@
 import { ESLint } from "eslint";
 const cli = new ESLint();
 
-const eslintignored = async (files: string[]) =>
+const eslintFiles = async (files: string[]) =>
   (
     await Promise.all(
       files.map(async (file) => !(await cli.isPathIgnored(file)) && file)
@@ -10,4 +10,4 @@ const eslintignored = async (files: string[]) =>
     .filter(Boolean)
     .join(" ");
 
-export { eslintignored };
+export { eslintFiles };
