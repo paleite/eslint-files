@@ -1,10 +1,30 @@
 # eslint-files
 
-Use this for your lint-staged setup:
+Created for use together with [lint-staged][lint-staged], removes all files ESLint ignores.
 
-_`lint-staged.config.js`_:
+## Installation
+
+This module is distributed via [npm][npm] which is bundled with [node][node] and
+should be installed as one of your project's `devDependencies`:
+
+```
+npm install --save-dev eslint-files
+```
+
+or
+
+for installation via [yarn][yarn]
+
+```
+yarn add --dev eslint-files
+```
+
+This library has a `peerDependencies` listing for `eslint@>=7.0.0`.
+
+## Example
 
 ```js
+// lint-staged.config.js
 const { eslintFiles } = require("eslint-files");
 
 module.exports = {
@@ -12,3 +32,8 @@ module.exports = {
     `eslint --max-warnings=0 ${await eslintFiles(files)}`,
 };
 ```
+
+[lint-staged]: https://github.com/okonet/lint-staged
+[npm]: https://www.npmjs.com/
+[yarn]: https://classic.yarnpkg.com
+[node]: https://nodejs.org
